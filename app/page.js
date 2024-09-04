@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SearchFilter from "./components/searchFilter/SearchFilter";
 
 export default function Home() {
   return (
