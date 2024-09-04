@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
       <body className="flex min-h-screen flex-col">
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
