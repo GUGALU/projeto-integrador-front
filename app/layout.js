@@ -5,8 +5,8 @@ import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 
 export const metadata = {
-  title: "Leilão Online",
-  description: "Leilão Online",
+  title: "Ferramenta de busca IFPR",
+  description: "Ferramenta de busca de projetos do IFPR",
 };
 
 export default function RootLayout({ children }) {
