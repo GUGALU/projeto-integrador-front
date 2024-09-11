@@ -35,7 +35,7 @@ const CRUD = () => {
 
   return (
     <div
-      className="flex justify-center items-center min-h-screen bg-[#ffffff]"
+      className="flex justify-center items-center min-h-screen"
     >
       <div className="max-w-xl w-full p-5 border rounded-md shadow-lg bg-white">
         <h2 className="text-2xl font-semibold mb-5 text-center">Cadastro de Artefatos</h2>

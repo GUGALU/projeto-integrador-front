@@ -1,9 +1,7 @@
-import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
-import ProjectCard from "./components/searchCard/searchCard";
 
 export const metadata = {
   title: "Ferramenta de busca IFPR",
@@ -22,8 +20,6 @@ export default function RootLayout({ children }) {
         >
           <Header />
           <main className="flex-grow">{children}</main>
-        
-
           <Footer />
         </ThemeProvider>
       </body>
