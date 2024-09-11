@@ -8,6 +8,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: setup-permission
+      run: |
+        git config --global --add safe.directory /github/workspace
     - name: mirror
       id: mirror
       uses: bridgelightcloud/github-mirror-action@v1
