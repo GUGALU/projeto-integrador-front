@@ -8,12 +8,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-      with:
-        ref: ${{ github.head_ref }}
-        fetch-depth: 0
-    - name: Push changes
-      run: git push https://x-access-token:${{ secrets.TOKEN }}@github.com/GUGALU/projeto-integrador-front.git HEAD:main
     - name: mirror
       id: mirror
       uses: bridgelightcloud/github-mirror-action@v1
