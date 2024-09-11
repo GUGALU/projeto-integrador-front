@@ -1,11 +1,16 @@
-import Image from "next/image";
-import SearchFilter from "./components/searchFilter/SearchFilter";
+"use client";
+
+import CRUD from "./components/crud/CRUD";
+import SearchCard from "./components/searchCard/searchCard.jsx";
+import React from "react";
+import Search from "./components/search/search";
 
 export default function Home() {
   return (
-    <div>
-      <h1>Home</h1>
-      <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+    <div className="flex flex-col gap-4 mt-10 w-10/12 mx-auto">
+      <Search />
+      <SearchCard />
+      <CRUD />
     </div>
   );
 }
