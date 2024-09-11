@@ -7,7 +7,7 @@ import Search from "./components/search/search";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-4 mt-10 w-10/12 mx-auto">
+    <div className="App">
       <Search />
       <SearchCard />
       <CRUD />
