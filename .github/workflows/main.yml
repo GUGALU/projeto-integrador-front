@@ -12,10 +12,8 @@ jobs:
       with:
         ref: ${{ github.head_ref }}
         fetch-depth: 0
-    - name: remote
-      run: |
-        git remote set-url origin https://github.com/GUGALU/projeto-integrador-front.git
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        github_token: ${{ env.TOKEN }}
+        github_token: ${{ secrets.TOKEN }}
+        repository: GUGALU/projeto-integrador-front
