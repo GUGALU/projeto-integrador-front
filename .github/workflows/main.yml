@@ -13,7 +13,4 @@ jobs:
         ref: ${{ github.head_ref }}
         fetch-depth: 0
     - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.TOKEN }}
-        repository: GUGALU/projeto-integrador-front
+      run: git push https://x-access-token:${{ secrets.TOKEN }}@github.com/GUGALU/projeto-integrador-front.git HEAD:main
