@@ -1,12 +1,12 @@
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
-import { Header } from "@/components/header/header";
-import { Footer } from "@/components/footer/footer";
+import Header from "./components/header/header";
+import Footer from "./components/footer/footer";
 
 export const metadata = {
-  title: "Ferramenta de buscas IFPR",
-  description: "Ferramenta de buscas",
+  title: "Leilão Online",
+  description: "Leilão Online",
 };
 
 export default function RootLayout({ children }) {
@@ -15,11 +15,10 @@ export default function RootLayout({ children }) {
       <body className="flex min-h-screen flex-col">
         <ThemeProvider
           attribute="class"
-          defaultTheme="white"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
-          {/* dev */}
           <Header />
           <main className="flex-grow">{children}</main>
           <Footer />
