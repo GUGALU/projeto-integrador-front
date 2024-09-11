@@ -1,3 +1,6 @@
+"use client";
+
+import CRUD from "./components/crud/CRUD";
 import SearchCard from './components/searchCard/searchCard.jsx';
 import React from 'react';
 import Image from "next/image";
@@ -10,6 +13,7 @@ export default function Home() {
         <h1 className="bg-white"/>
         <SearchCard />
         <Search/>
+        <CRUD />
       </div>
   );
 }
