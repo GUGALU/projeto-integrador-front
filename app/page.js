@@ -3,14 +3,14 @@
 import React from "react";
 import Search from "./components/search/search";
 import SearchCard from "./components/searchCard/searchCard";
-import CRUD from "./components/crud/crud";
+import Crud from "./components/crud/crud";
 
 export default function Home() {
   return (
     <div className="flex flex-col w-10/12 mx-auto gap-10">
       <Search />
       <SearchCard />
-      <CRUD />
+      <Crud />
     </div>
   );
 }
