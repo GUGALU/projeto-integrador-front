@@ -1,5 +1,4 @@
 import "./globals.css";
-import { ThemeProvider } from "next-themes";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 
@@ -12,16 +11,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="flex min-h-screen flex-col">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-        </ThemeProvider>
+        <Header />
+        <main className="flex-grow">{children}</main>
+        <Footer />
       </body>
     </html>
   );

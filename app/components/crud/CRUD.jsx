@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from 'react';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
@@ -7,7 +9,7 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'tailwindcss/tailwind.css';
 
-const CRUD = () => {
+export default function Crud()  {
   const [artefato, setArtefato] = useState({
     titulo: '',
     autor: '',
@@ -121,5 +123,3 @@ const CRUD = () => {
     </div>
   );
 };
-
-export default CRUD;

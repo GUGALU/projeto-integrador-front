@@ -1,13 +1,13 @@
 "use client";
 
-import CRUD from "./components/crud/CRUD";
-import SearchCard from "./components/searchCard/searchCard.jsx";
 import React from "react";
 import Search from "./components/search/search";
+import SearchCard from "./components/searchCard/searchCard";
+import CRUD from "./components/crud/crud";
 
 export default function Home() {
   return (
-    <div className="App">
+    <div className="flex flex-col w-10/12 mx-auto gap-10">
       <Search />
       <SearchCard />
       <CRUD />
