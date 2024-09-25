@@ -3,7 +3,7 @@
 import React from "react";
 import Search from "./components/search/search";
 import SearchCard from "./components/searchCard/searchCard";
-import Crud from "./components/crud/crud";
+import Crud from "./components/crud/CRUD";
 
 export default function Home() {
   return (
