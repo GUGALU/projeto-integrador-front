@@ -19,7 +19,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Add destination repository as remote
-        run: git remote add destination https://$DESTINATION_REPO_PAT@github.com/username/destination-repo.git
+        run: git remote add destination https://$DESTINATION_REPO_PAT@github.com/GUGALU/projeto-integrador-front.git
         env:
           DESTINATION_REPO_PAT: ${{ secrets.DESTINATION_REPO_PAT }}
 
