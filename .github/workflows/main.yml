@@ -18,5 +18,5 @@ jobs:
     - name: Mirror repository
       uses: bridgelightcloud/github-mirror-action@v1
       with:
-        origin: https://github.com/GUGALU/projeto-integrador-front.git
+        origin: https://github.com/GUGALU/projeto-integrador-front
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
