@@ -1,4 +1,5 @@
 name: Push org
+
 on:
   push:
     branches:
@@ -8,11 +9,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: setup-permission
-      run: |
-        git config --global --add safe.directory /github/workspace
-    - name: mirror
-      id: mirror
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up safe directory
+      run: git config --global --add safe.directory /github/workspace
+
+    - name: Mirror repository
       uses: bridgelightcloud/github-mirror-action@v1
       with:
         origin: https://github.com/GUGALU/projeto-integrador-front.git
