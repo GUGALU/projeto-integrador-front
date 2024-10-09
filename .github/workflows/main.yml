@@ -1,4 +1,4 @@
-name: Sync Repository
+name: Mirror Repository
 
 on:
   push:
@@ -6,23 +6,23 @@ on:
       - main
 
 jobs:
-  sync:
+  mirror:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout source repository
-        uses: actions/checkout@v3
+    - name: Checkout the repository
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
 
-      - name: Set up git
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+    - name: Set up SSH for GitHub
+      run: |
+        mkdir -p ~/.ssh
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
 
-      - name: Add destination repository as remote
-        run: git remote add destination https://$DESTINATION_REPO_PAT@github.com/GUGALU/projeto-integrador-front.git
-        env:
-          DESTINATION_REPO_PAT: ${{ secrets.DEPLOY }}
-
-      - name: Push to destination repository
-        run: |
-          git push destination main --force
+    - name: Push to the mirror repository
+      env:
+        REPO_TOKEN: ${{ secrets.DEPLOY }}
+      run: |
+        git remote add mirror git@github.com/GUGALU/projeto-integrador-front.git
+        git push --mirror mirror
