@@ -18,11 +18,11 @@ jobs:
     - name: Set up SSH for GitHub
       run: |
         mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
         ssh-keyscan github.com >> ~/.ssh/known_hosts
 
     - name: Push to the mirror repository
-      env:
-        REPO_TOKEN: ${{ secrets.DEPLOY }}
       run: |
-        git remote add mirror https://${{ secrets.DEPLOY }}@github.com/GUGALU/projeto-integrador-front.git
+        git remote add mirror git@github.com:GUGALU/projeto-integrador-front.git
         git push --mirror mirror
