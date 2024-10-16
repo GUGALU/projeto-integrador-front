@@ -33,6 +33,20 @@ export default function Crud()  {
   const handleDropdownChange = (e) => {
     setArtefato((prev) => ({ ...prev, tipo: e.value }));
   };
+  const excluirArtefato = (titulo) => {
+    // Filtrar os artefatos para excluir o que tem o título especificado
+    const novosArtefatos = artefatos.filter(artefato => artefato.titulo !== titulo);
+
+    // Atualizar o localStorage
+    localStorage.setItem('artefatos', JSON.stringify(novosArtefatos));
+
+    // Atualizar o estado
+    setArtefatos(novosArtefatos);
+  };
+
+  localStorage.setItem('artefatos', JSON.stringify([
+    { titulo: 'Artefato 1'}
+  ]));
 
   const handleAddArtefato = () => {
     ArtefatoService.adicionarArtefato(artefato);
@@ -156,6 +170,12 @@ export default function Crud()  {
               ))}
             </ul>
           )}
+
+        <div className="flex space-x-3 mt-6">
+          <Button label="Adicionar" icon="pi pi-plus" className="p-button-success w-full" />
+          <Button label="Editar" icon="pi pi-pencil" className="p-button-warning w-full" />
+          <Button label="Excluir" icon="pi pi-trash" className="p-button-danger w-full" />
+          <Button onClick={() => excluirArtefato(artefato.titulo)} label="Buscar" icon="pi pi-search" className="p-button-info w-full" />
         </div>
       </div>
     </div>
