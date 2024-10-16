@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { Dropdown } from 'primereact/dropdown';
@@ -6,6 +6,7 @@ import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'tailwindcss/tailwind.css';
+import ArtefatoService from '../localStorage/localStorage';
 
 const CRUD = () => {
   const [artefato, setArtefato] = useState({
@@ -17,12 +18,12 @@ const CRUD = () => {
     palavrasChave: ''
   });
 
-  const tiposArtefato = [
-    { label: 'Artigo', value: 'artigo' },
-    { label: 'Projeto', value: 'projeto' },
-    { label: 'Repositório', value: 'repositorio' },
-    { label: 'Diagrama', value: 'diagrama' }
-  ];
+  const [artefatos, setArtefatos] = useState([]);
+
+  useEffect(() => {
+    const artefatosSalvos = ArtefatoService.getArtefatos();
+    setArtefatos(artefatosSalvos);
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -33,10 +34,30 @@ const CRUD = () => {
     setArtefato((prev) => ({ ...prev, tipo: e.value }));
   };
 
+  const handleAddArtefato = () => {
+    ArtefatoService.adicionarArtefato(artefato);
+    const novosArtefatos = ArtefatoService.getArtefatos();
+    setArtefatos(novosArtefatos);
+
+    setArtefato({
+      titulo: '',
+      autor: '',
+      integrantes: '',
+      link: '',
+      tipo: null,
+      palavrasChave: ''
+    });
+  };
+
+  const tiposArtefato = [
+    { label: 'Artigo', value: 'artigo' },
+    { label: 'Projeto', value: 'projeto' },
+    { label: 'Repositório', value: 'repositorio' },
+    { label: 'Diagrama', value: 'diagrama' }
+  ];
+
   return (
-    <div
-      className="flex justify-center items-center min-h-screen"
-    >
+    <div className="flex justify-center items-center min-h-screen">
       <div className="max-w-xl w-full p-5 border rounded-md shadow-lg bg-white">
         <h2 className="text-2xl font-semibold mb-5 text-center">Cadastro de Artefatos</h2>
 
@@ -72,7 +93,7 @@ const CRUD = () => {
             value={artefato.integrantes}
             onChange={handleInputChange}
             className="w-full mt-1 border border-black"
-            placeholder=" Adicionar autor como padrão"
+            placeholder="Adicionar autor como padrão"
           />
         </div>
 
@@ -111,11 +132,30 @@ const CRUD = () => {
           />
         </div>
 
-        <div className="flex space-x-3 mt-6">
-          <Button label="Adicionar" icon="pi pi-plus" className="p-button-success w-full" />
-          <Button label="Editar" icon="pi pi-pencil" className="p-button-warning w-full" />
-          <Button label="Excluir" icon="pi pi-trash" className="p-button-danger w-full" />
-          <Button label="Buscar" icon="pi pi-search" className="p-button-info w-full" />
+        <div className="flex justify-center mt-6">
+          <Button
+            label="Adicionar"
+            icon="pi pi-plus"
+            className="p-button-success w-full"
+            onClick={handleAddArtefato}
+          />
+        </div>
+
+        <div className="mt-8">
+          <h3 className="text-lg font-semibold mb-3">Artefatos Cadastrados</h3>
+          {artefatos.length === 0 ? (
+            <p className="text-gray-500">Nenhum artefato cadastrado ainda.</p>
+          ) : (
+            <ul className="list-disc pl-5">
+              {artefatos.map((a, index) => (
+                <li key={index} className="mb-2">
+                  <strong>Título:</strong> {a.titulo} <br />
+                  <strong>Autor:</strong> {a.autor} <br />
+                  <strong>Tipo:</strong> {a.tipo || 'N/A'}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
     </div>
