@@ -8,7 +8,7 @@ import 'primeicons/primeicons.css';
 import 'tailwindcss/tailwind.css';
 import ArtefatoService from '../localStorage/localStorage';
 
-const CRUD = () => {
+export default function Crud()  {
   const [artefato, setArtefato] = useState({
     titulo: '',
     autor: '',
@@ -161,5 +161,3 @@ const CRUD = () => {
     </div>
   );
 };
-
-export default CRUD;
