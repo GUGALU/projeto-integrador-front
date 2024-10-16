@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "primereact/button";
 import { IoSearch } from "react-icons/io5";
 
@@ -6,7 +8,7 @@ const Search = () => {
     <form
       action="/search"
       method="GET"
-      className="flex justify-center gap-2 w-full"
+      className="flex justify-center gap-2 w-full mt-10"
     >
       <input
         type="search"
