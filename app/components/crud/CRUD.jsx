@@ -8,7 +8,7 @@ import 'primeicons/primeicons.css';
 import 'tailwindcss/tailwind.css';
 import ArtefatoService from '../localStorage/localStorage';
 
-export default function Crud()  {
+export default function Crud() {
   const [artefato, setArtefato] = useState({
     titulo: '',
     autor: '',
@@ -49,7 +49,8 @@ export default function Crud()  {
   ]));
 
   const handleAddArtefato = () => {
-    ArtefatoService.adicionarArtefato(artefato);
+    const novoArtefato = { ...artefato, id: Date.now() };
+    ArtefatoService.adicionarArtefato(novoArtefato);
     const novosArtefatos = ArtefatoService.getArtefatos();
     setArtefatos(novosArtefatos);
 
@@ -148,21 +149,22 @@ export default function Crud()  {
 
         <div className="flex justify-center mt-6">
           <Button
-            label="Adicionar"
+            label="Adicionar Projeto"
             icon="pi pi-plus"
             className="p-button-success w-full"
             onClick={handleAddArtefato}
           />
         </div>
 
-        <div className="mt-8">
+        {/* <div className="mt-8">
           <h3 className="text-lg font-semibold mb-3">Artefatos Cadastrados</h3>
           {artefatos.length === 0 ? (
             <p className="text-gray-500">Nenhum artefato cadastrado ainda.</p>
           ) : (
             <ul className="list-disc pl-5">
-              {artefatos.map((a, index) => (
-                <li key={index} className="mb-2">
+              {artefatos.map((a) => (
+                <li key={a.id} className="mb-2">
+                  <strong>ID:</strong> {a.id} <br />
                   <strong>Título:</strong> {a.titulo} <br />
                   <strong>Autor:</strong> {a.autor} <br />
                   <strong>Tipo:</strong> {a.tipo || 'N/A'}
@@ -170,14 +172,8 @@ export default function Crud()  {
               ))}
             </ul>
           )}
-
-        <div className="flex space-x-3 mt-6">
-          <Button label="Adicionar" icon="pi pi-plus" className="p-button-success w-full" />
-          <Button label="Editar" icon="pi pi-pencil" className="p-button-warning w-full" />
-          <Button label="Excluir" icon="pi pi-trash" className="p-button-danger w-full" />
-          <Button onClick={() => excluirArtefato(artefato.titulo)} label="Buscar" icon="pi pi-search" className="p-button-info w-full" />
-        </div>
+        </div> */}
       </div>
     </div>
   );
-};
+}
