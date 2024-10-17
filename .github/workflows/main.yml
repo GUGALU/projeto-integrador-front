@@ -25,4 +25,4 @@ jobs:
     - name: Push to the mirror repository
       run: |
         git remote add mirror git@github.com:GUGALU/projeto-integrador-front.git
-        git push --mirror mirror
+        git push mirror main
