@@ -33,6 +33,20 @@ export default function Crud() {
   const handleDropdownChange = (e) => {
     setArtefato((prev) => ({ ...prev, tipo: e.value }));
   };
+  const excluirArtefato = (titulo) => {
+    // Filtrar os artefatos para excluir o que tem o título especificado
+    const novosArtefatos = artefatos.filter(artefato => artefato.titulo !== titulo);
+
+    // Atualizar o localStorage
+    localStorage.setItem('artefatos', JSON.stringify(novosArtefatos));
+
+    // Atualizar o estado
+    setArtefatos(novosArtefatos);
+  };
+
+  localStorage.setItem('artefatos', JSON.stringify([
+    { titulo: 'Artefato 1'}
+  ]));
 
   const handleAddArtefato = () => {
     const novoArtefato = { ...artefato, id: Date.now() };
