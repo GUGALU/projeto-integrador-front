@@ -114,10 +114,9 @@ export default function Crud()  {
         </div>
 
         <div className="flex space-x-3 mt-6">
-          <Button label="Adicionar" icon="pi pi-plus" className="p-button-success w-full" />
-          <Button label="Editar" icon="pi pi-pencil" className="p-button-warning w-full" />
+          <Button label="Salvar" icon="pi pi-check" className="p-button-success w-full" />
           <Button label="Excluir" icon="pi pi-trash" className="p-button-danger w-full" />
-          <Button label="Buscar" icon="pi pi-search" className="p-button-info w-full" />
+          <Button label="Cancelar" icon="pi pi-times" className="p-button-danger w-full" />
         </div>
       </div>
     </div>
