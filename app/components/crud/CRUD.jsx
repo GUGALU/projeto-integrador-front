@@ -154,7 +154,6 @@ export default function Crud() {
             className="p-button-success w-full"
             onClick={handleAddArtefato}
           />
-        </div>
 
         {/* <div className="mt-8">
           <h3 className="text-lg font-semibold mb-3">Artefatos Cadastrados</h3>
