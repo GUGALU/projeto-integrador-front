@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { InputText } from "primereact/inputtext";
-import { Button } from "primereact/button";
-import { Dropdown } from "primereact/dropdown";
-import "primereact/resources/themes/saga-blue/theme.css";
-import "primereact/resources/primereact.min.css";
-import "primeicons/primeicons.css";
-import "tailwindcss/tailwind.css";
-import ArtefatoService from "../localStorage/localStorage";
+import React, { useState, useEffect } from 'react';
+import { InputText } from 'primereact/inputtext';
+import { Button } from 'primereact/button';
+import { Dropdown } from 'primereact/dropdown';
+import 'primereact/resources/themes/saga-blue/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+import 'tailwindcss/tailwind.css';
+import ArtefatoService from '../localStorage/localStorage';
 
 export default function Crud() {
   const [artefato, setArtefato] = useState({
@@ -34,22 +34,20 @@ export default function Crud() {
     setArtefato((prev) => ({ ...prev, tipo: e.value }));
   };
   const excluirArtefato = (titulo) => {
-    // Filtrar os artefatos para excluir o que tem o título especificado
     const novosArtefatos = artefatos.filter(
       (artefato) => artefato.titulo !== titulo
     );
 
-    // Atualizar o localStorage
     localStorage.setItem("artefatos", JSON.stringify(novosArtefatos));
 
-    // Atualizar o estado
     setArtefatos(novosArtefatos);
   };
 
   localStorage.setItem("artefatos", JSON.stringify([{ titulo: "Artefato 1" }]));
 
   const handleAddArtefato = () => {
-    ArtefatoService.adicionarArtefato(artefato);
+    const novoArtefato = { ...artefato, id: Date.now() };
+    ArtefatoService.adicionarArtefato(novoArtefato);
     const novosArtefatos = ArtefatoService.getArtefatos();
     setArtefatos(novosArtefatos);
 

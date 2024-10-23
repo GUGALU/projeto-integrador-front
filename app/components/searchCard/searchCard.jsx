@@ -72,7 +72,6 @@ export default function SearchCard() {
                 >
                   <Crud />
                 </Dialog>
-    
               </div>
             </div>
             
