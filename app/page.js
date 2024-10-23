@@ -10,7 +10,6 @@ export default function Home() {
     <div className="flex flex-col w-10/12 mx-auto gap-10">
       <Search />
       <SearchCard />
-      <Crud />
     </div>
   );
 }

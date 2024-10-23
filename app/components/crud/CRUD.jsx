@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { Dropdown } from 'primereact/dropdown';
@@ -8,8 +6,9 @@ import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'tailwindcss/tailwind.css';
+import ArtefatoService from '../localStorage/localStorage';
 
-export default function Crud()  {
+export default function Crud() {
   const [artefato, setArtefato] = useState({
     titulo: '',
     autor: '',
@@ -19,12 +18,12 @@ export default function Crud()  {
     palavrasChave: ''
   });
 
-  const tiposArtefato = [
-    { label: 'Artigo', value: 'artigo' },
-    { label: 'Projeto', value: 'projeto' },
-    { label: 'Repositório', value: 'repositorio' },
-    { label: 'Diagrama', value: 'diagrama' }
-  ];
+  const [artefatos, setArtefatos] = useState([]);
+
+  useEffect(() => {
+    const artefatosSalvos = ArtefatoService.getArtefatos();
+    setArtefatos(artefatosSalvos);
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -34,11 +33,46 @@ export default function Crud()  {
   const handleDropdownChange = (e) => {
     setArtefato((prev) => ({ ...prev, tipo: e.value }));
   };
+  const excluirArtefato = (titulo) => {
+    // Filtrar os artefatos para excluir o que tem o título especificado
+    const novosArtefatos = artefatos.filter(artefato => artefato.titulo !== titulo);
+
+    // Atualizar o localStorage
+    localStorage.setItem('artefatos', JSON.stringify(novosArtefatos));
+
+    // Atualizar o estado
+    setArtefatos(novosArtefatos);
+  };
+
+  localStorage.setItem('artefatos', JSON.stringify([
+    { titulo: 'Artefato 1'}
+  ]));
+
+  const handleAddArtefato = () => {
+    const novoArtefato = { ...artefato, id: Date.now() };
+    ArtefatoService.adicionarArtefato(novoArtefato);
+    const novosArtefatos = ArtefatoService.getArtefatos();
+    setArtefatos(novosArtefatos);
+
+    setArtefato({
+      titulo: '',
+      autor: '',
+      integrantes: '',
+      link: '',
+      tipo: null,
+      palavrasChave: ''
+    });
+  };
+
+  const tiposArtefato = [
+    { label: 'Artigo', value: 'artigo' },
+    { label: 'Projeto', value: 'projeto' },
+    { label: 'Repositório', value: 'repositorio' },
+    { label: 'Diagrama', value: 'diagrama' }
+  ];
 
   return (
-    <div
-      className="flex justify-center items-center min-h-screen"
-    >
+    <div className="flex justify-center items-center min-h-screen">
       <div className="max-w-xl w-full p-5 border rounded-md shadow-lg bg-white">
         <h2 className="text-2xl font-semibold mb-5 text-center">Cadastro de Artefatos</h2>
 
@@ -74,7 +108,7 @@ export default function Crud()  {
             value={artefato.integrantes}
             onChange={handleInputChange}
             className="w-full mt-1 border border-black"
-            placeholder=" Adicionar autor como padrão"
+            placeholder="Adicionar autor como padrão"
           />
         </div>
 
@@ -113,12 +147,32 @@ export default function Crud()  {
           />
         </div>
 
-        <div className="flex space-x-3 mt-6">
-          <Button label="Salvar" icon="pi pi-check" className="p-button-success w-full" />
-          <Button label="Excluir" icon="pi pi-trash" className="p-button-danger w-full" />
-          <Button label="Cancelar" icon="pi pi-times" className="p-button-danger w-full" />
-        </div>
+        <div className="flex justify-center mt-6">
+          <Button
+            label="Adicionar Projeto"
+            icon="pi pi-plus"
+            className="p-button-success w-full"
+            onClick={handleAddArtefato}
+          />
+
+        {/* <div className="mt-8">
+          <h3 className="text-lg font-semibold mb-3">Artefatos Cadastrados</h3>
+          {artefatos.length === 0 ? (
+            <p className="text-gray-500">Nenhum artefato cadastrado ainda.</p>
+          ) : (
+            <ul className="list-disc pl-5">
+              {artefatos.map((a) => (
+                <li key={a.id} className="mb-2">
+                  <strong>ID:</strong> {a.id} <br />
+                  <strong>Título:</strong> {a.titulo} <br />
+                  <strong>Autor:</strong> {a.autor} <br />
+                  <strong>Tipo:</strong> {a.tipo || 'N/A'}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div> */}
       </div>
     </div>
   );
-};
+}

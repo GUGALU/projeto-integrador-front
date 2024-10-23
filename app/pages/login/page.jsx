@@ -6,7 +6,7 @@ import { Button } from "primereact/button";
 
 export default function Login() {
   return (
-    <div className="flex justify-center items-center h-screen bg-[#039C2533]">
+    <div className="flex justify-center items-center h-screen bg-[#d0d0d0]">
       <div className="w-[322px] h-[320px] p-8 bg-white shadow-lg rounded-lg">
         <form className="space-y-7">
           <div className="space-y-1">
@@ -20,7 +20,7 @@ export default function Login() {
               id="email"
               name="email"
               type="email"
-              placeholder="Email"
+              placeholder=" Email"
               required
               className="h-8 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             />
@@ -36,7 +36,7 @@ export default function Login() {
               id="password"
               name="password"
               type="password"
-              placeholder="Senha"
+              placeholder=" Senha"
               required
               toggleMask
               className="h-8 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
