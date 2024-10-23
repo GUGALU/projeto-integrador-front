@@ -33,6 +33,7 @@ export default function Crud() {
   const handleDropdownChange = (e) => {
     setArtefato((prev) => ({ ...prev, tipo: e.value }));
   };
+
   const excluirArtefato = (titulo) => {
     const novosArtefatos = artefatos.filter(
       (artefato) => artefato.titulo !== titulo
@@ -41,11 +42,11 @@ export default function Crud() {
     setArtefatos(novosArtefatos);
   };
 
-  localStorage.setItem("artefatos", JSON.stringify([{ titulo: "Artefato 1" }]));
-
   const handleAddArtefato = () => {
     const novoArtefato = { ...artefato, id: Date.now() };
+    
     ArtefatoService.adicionarArtefato(novoArtefato);
+    
     const novosArtefatos = ArtefatoService.getArtefatos();
     setArtefatos(novosArtefatos);
 
@@ -161,6 +162,7 @@ export default function Crud() {
             label="Salvar"
             icon="pi pi-check"
             className="p-button-success w-full"
+            onClick={handleAddArtefato}
           />
 
           <Button
