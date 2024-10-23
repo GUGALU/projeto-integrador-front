@@ -173,9 +173,9 @@ export default function Crud() {
           />
           <Button
             onClick={() => excluirArtefato(artefato.titulo)}
-            label="Buscar"
+            label="Cancelar"
             icon="pi pi-times"
-            className="p-button-info w-full"
+            className="p-button-danger w-full"
           />
         </div>
       </div>
