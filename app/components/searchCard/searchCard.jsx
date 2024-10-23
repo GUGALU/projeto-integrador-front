@@ -12,6 +12,7 @@ export default function SearchCard() {
 
   const projetos = [
     {
+      id:1,
       titulo: "Projeto 1",
       descricao: "Descrição do projeto 1.",
       colaboradores: ["João", "Mário", "José"],
@@ -19,6 +20,7 @@ export default function SearchCard() {
       repositorio: "https://github.com/projeto1"
     },
     {
+      id:2,
       titulo: "Projeto 2",
       descricao: "Descrição do projeto 2.",
       colaboradores: ["Ana", "Carlos", "Luísa"],
@@ -26,6 +28,7 @@ export default function SearchCard() {
       repositorio: "https://github.com/projeto2"
     },
     {
+      id:3,
       titulo: "Projeto 3",
       descricao: "Descrição do projeto 3.",
       colaboradores: ["Pedro", "Roberta", "Marcos"],
@@ -33,6 +36,7 @@ export default function SearchCard() {
       repositorio: "https://github.com/projeto3"
     },
     {
+      id:4,
       titulo: "Projeto 4",
       descricao: "Descrição do projeto 4.",
       colaboradores: ["Fernanda", "Raul", "Clara"],
@@ -40,6 +44,7 @@ export default function SearchCard() {
       repositorio: "https://github.com/projeto4"
     },
     {
+      id:5,
       titulo: "Projeto 5",
       descricao: "Descrição do projeto 5.",
       colaboradores: ["Bruno", "Sofia", "Léo"],
@@ -61,14 +66,12 @@ export default function SearchCard() {
                 <Button onClick={openDialog} icon="pi pi-pencil" className="bg-green-800 text-white text-sm px-0.5 py-0.5 rounded-full"/>
                 <Dialog
                   visible={isDialogVisible}
-                  style={{ width: '50vw' }}
+                  style={{height:'100vh',with:'100vw'}}
                   modal
                   onHide={closeDialog}
-
                 >
                   <Crud />
                 </Dialog>
-    
               </div>
             </div>
             
