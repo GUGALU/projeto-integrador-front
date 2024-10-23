@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { InputText } from 'primereact/inputtext';
-import { Button } from 'primereact/button';
-import { Dropdown } from 'primereact/dropdown';
-import 'primereact/resources/themes/saga-blue/theme.css';
-import 'primereact/resources/primereact.min.css';
-import 'primeicons/primeicons.css';
-import 'tailwindcss/tailwind.css';
-import ArtefatoService from '../localStorage/localStorage';
+import React, { useState, useEffect } from "react";
+import { InputText } from "primereact/inputtext";
+import { Button } from "primereact/button";
+import { Dropdown } from "primereact/dropdown";
+import "primereact/resources/themes/saga-blue/theme.css";
+import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";
+import "tailwindcss/tailwind.css";
+import ArtefatoService from "../localStorage/localStorage";
 
 export default function Crud() {
   const [artefato, setArtefato] = useState({
@@ -37,9 +37,7 @@ export default function Crud() {
     const novosArtefatos = artefatos.filter(
       (artefato) => artefato.titulo !== titulo
     );
-
     localStorage.setItem("artefatos", JSON.stringify(novosArtefatos));
-
     setArtefatos(novosArtefatos);
   };
 
@@ -164,6 +162,7 @@ export default function Crud() {
             icon="pi pi-check"
             className="p-button-success w-full"
           />
+
           <Button
             label="Excluir"
             icon="pi pi-trash"
@@ -175,6 +174,7 @@ export default function Crud() {
             icon="pi pi-times"
             className="p-button-danger w-full"
           />
+
         </div>
       </div>
     </div>
