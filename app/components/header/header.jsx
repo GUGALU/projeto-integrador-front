@@ -1,20 +1,41 @@
 import React from 'react';
+import { Menubar } from 'primereact/menubar';
 
-const Header = () => {
-  return (
-    <header>
-      <div className="bg-[#071D41] py-4 text-center ">
-        <a
-          href="https://www.gov.br/pt-br"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white text-lg"
-        >
-          <strong>gov.br</strong>
-        </a>
-      </div>
-    </header>
+export default function BasicDemo() {
+  const IFPRItem = () => (
+    <span>
+      <img
+        src="https://certificados.paranavai.ifpr.edu.br/resources/img/paranavai-vertical.png"
+        alt="IFPR"
+        style={{ width:'auto', height: '70px' }}
+      />
+    </span>
+
   );
-};
+  const menu = [
+    {
+    
+      // label: <IFPRItem/>
+    
+    },  
 
-export default Header;
+    {
+      label: 'Home',
+      icon: 'pi pi-home'
+    }
+   
+
+  ];
+
+  return (
+
+    <div>
+      <IFPRItem/>
+      <div className="card">
+        <Menubar model={menu} />
+      </div>
+
+    </div>
+    
+  )
+}
