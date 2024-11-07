@@ -1,5 +1,10 @@
 import React from 'react';
 import { Menubar } from 'primereact/menubar';
+import { LuLogIn } from "react-icons/lu";
+import { FaHome } from "react-icons/fa";
+
+
+
 
 export default function BasicDemo() {
   const IFPRItem = () => (
@@ -15,15 +20,22 @@ export default function BasicDemo() {
   const menu = [
     {
     
-      // label: <IFPRItem/>
+      //label: <IFPRItem/>
     
     },  
 
     {
-      label: 'Home',
-      icon: 'pi pi-home'
-    }
-   
+      label:'Home',
+      icon: <FaHome/>,
+
+    },
+
+    {
+      label: 'Login ',
+      icon: <LuLogIn/>,
+      className: "ml-auto",
+
+    },
 
   ];
 
@@ -32,7 +44,10 @@ export default function BasicDemo() {
     <div>
       <IFPRItem/>
       <div className="card">
-        <Menubar model={menu} />
+        <div className='justify-between ml-auto'>
+          <Menubar model={menu} className='flex-1' />
+        </div>
+      
       </div>
 
     </div>
