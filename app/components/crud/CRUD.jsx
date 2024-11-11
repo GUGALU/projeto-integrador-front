@@ -1,4 +1,5 @@
-// Crud.js
+"use client";
+
 import React, { useState, useEffect } from "react";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
@@ -49,14 +50,13 @@ export default function Crud({ artefatoParaEditar, fecharDialog }) {
   const handleSaveArtefato = () => {
     if (artefato.titulo && artefato.autor && artefato.link && artefato.tipo) {
       if (artefatoParaEditar) {
-        ArtefatoService.atualizarArtefato(artefato); // Atualiza o artefato existente
+        ArtefatoService.atualizarArtefato(artefato);
       } else {
         ArtefatoService.adicionarArtefato({ ...artefato, id: Date.now() });
       }
       setArtefatos(ArtefatoService.getArtefatos());
       setMensagemSucesso("Salvo com sucesso!");
-      
-      fecharDialog(); // Fecha o dialog após salvar
+      fecharDialog();
     }
   };
 
@@ -69,7 +69,7 @@ export default function Crud({ artefatoParaEditar, fecharDialog }) {
       tipo: null,
       palavrasChave: "",
     });
-    fecharDialog(); // Fecha o dialog ao cancelar
+    fecharDialog();
   };
 
   const tiposArtefato = [
@@ -80,75 +80,76 @@ export default function Crud({ artefatoParaEditar, fecharDialog }) {
   ];
 
   return (
-    <div className="p-4 w-full">
-      <h2 className="text-xl font-semibold mb-5">Editar Artefato</h2>
+    <div className="p-4 w-full bg-gray-800 text-white rounded-lg">
+      <h2 className="text-xl font-semibold mb-5 text-green-400">Editar Artefato</h2>
 
       {mensagemSucesso && <p className="text-green-500 mb-3">{mensagemSucesso}</p>}
 
       <div className="mb-4">
-        <label htmlFor="titulo">Título</label>
+        <label htmlFor="titulo" className="text-gray-300">Título</label>
         <InputText
           id="titulo"
           name="titulo"
           value={artefato.titulo}
           onChange={handleInputChange}
-          className="w-full"
+          className="w-full bg-gray-700 text-white"
         />
       </div>
 
       <div className="mb-4">
-        <label htmlFor="autor">Autor</label>
+        <label htmlFor="autor" className="text-gray-300">Autor</label>
         <InputText
           id="autor"
           name="autor"
           value={artefato.autor}
           onChange={handleInputChange}
-          className="w-full"
+          className="w-full bg-gray-700 text-white"
         />
       </div>
 
       <div className="mb-4">
-        <label htmlFor="integrantes">Integrantes</label>
+        <label htmlFor="integrantes" className="text-gray-300">Integrantes</label>
         <InputText
           id="integrantes"
           name="integrantes"
           value={artefato.integrantes}
           onChange={handleInputChange}
-          className="w-full"
+          className="w-full bg-gray-700 text-white"
         />
       </div>
 
       <div className="mb-4">
-        <label htmlFor="link">Link</label>
+        <label htmlFor="link" className="text-gray-300">Link</label>
         <InputText
           id="link"
           name="link"
           value={artefato.link}
           onChange={handleInputChange}
-          className="w-full"
+          className="w-full bg-gray-700 text-white"
         />
       </div>
 
       <div className="mb-4">
-        <label htmlFor="tipo">Tipo de Artefato</label>
+        <label htmlFor="tipo" className="text-gray-300">Tipo de Artefato</label>
         <Dropdown
           id="tipo"
           value={artefato.tipo}
           options={tiposArtefato}
           onChange={handleDropdownChange}
           placeholder="Selecione um tipo"
-          className="w-full"
+          className="w-full bg-gray-700 text-white"
+          panelStyle={{ backgroundColor: '#1F2937', color: '#D1D5DB', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)' }}
         />
       </div>
 
       <div className="mb-4">
-        <label htmlFor="palavrasChave">Palavras-chave</label>
+        <label htmlFor="palavrasChave" className="text-gray-300">Palavras-chave</label>
         <InputText
           id="palavrasChave"
           name="palavrasChave"
           value={artefato.palavrasChave}
           onChange={handleInputChange}
-          className="w-full"
+          className="w-full bg-gray-700 text-white"
         />
       </div>
 
