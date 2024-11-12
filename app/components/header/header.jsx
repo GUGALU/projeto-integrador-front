@@ -25,15 +25,16 @@ export default function BasicDemo() {
     },  
 
     {
-      label:'Home',
+      label:'Home', 
       icon: <FaHome/>,
+      className: "text-white flex justify-center"
 
     },
 
     {
       label: 'Login ',
       icon: <LuLogIn/>,
-      className: "ml-auto",
+      className: "ml-auto text-white"
 
     },
 
@@ -44,8 +45,9 @@ export default function BasicDemo() {
     <div>
       <IFPRItem/>
       <div className="card">
-        <div className='justify-between ml-auto'>
-          <Menubar model={menu} className='flex-1' />
+        <div className=''>
+
+          <Menubar model={menu} className='flex-1 bg-green-500' />
         </div>
       
       </div>
