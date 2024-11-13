@@ -92,7 +92,7 @@ export default function Crud({ artefatoParaEditar, fecharDialog }) {
           name="titulo"
           value={artefato.titulo}
           onChange={handleInputChange}
-          className="w-full bg-gray-700 text-white"
+          className="w-full bg-gray-700 text-white rounded-md"
         />
       </div>
 
@@ -103,7 +103,7 @@ export default function Crud({ artefatoParaEditar, fecharDialog }) {
           name="autor"
           value={artefato.autor}
           onChange={handleInputChange}
-          className="w-full bg-gray-700 text-white"
+          className="w-full bg-gray-700 text-white rounded-md"
         />
       </div>
 
@@ -114,7 +114,7 @@ export default function Crud({ artefatoParaEditar, fecharDialog }) {
           name="integrantes"
           value={artefato.integrantes}
           onChange={handleInputChange}
-          className="w-full bg-gray-700 text-white"
+          className="w-full bg-gray-700 text-white rounded-md"
         />
       </div>
 
@@ -125,7 +125,7 @@ export default function Crud({ artefatoParaEditar, fecharDialog }) {
           name="link"
           value={artefato.link}
           onChange={handleInputChange}
-          className="w-full bg-gray-700 text-white"
+          className="w-full bg-gray-700 text-white rounded-md"
         />
       </div>
 
@@ -136,8 +136,8 @@ export default function Crud({ artefatoParaEditar, fecharDialog }) {
           value={artefato.tipo}
           options={tiposArtefato}
           onChange={handleDropdownChange}
-          placeholder="Selecione um tipo"
-          className="w-full bg-gray-700 text-white"
+          placeholder="Selecione um Tipo"
+          className="w-full bg-gray-700 text-white rounded-md"
           panelStyle={{ backgroundColor: '#1F2937', color: '#D1D5DB', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)' }}
         />
       </div>
@@ -149,7 +149,7 @@ export default function Crud({ artefatoParaEditar, fecharDialog }) {
           name="palavrasChave"
           value={artefato.palavrasChave}
           onChange={handleInputChange}
-          className="w-full bg-gray-700 text-white"
+          className="w-full bg-gray-700 text-white rounded-md"
         />
       </div>
 
