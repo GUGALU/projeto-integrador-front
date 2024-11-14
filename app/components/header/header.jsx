@@ -1,53 +1,44 @@
 import React from 'react';
 import { Menubar } from 'primereact/menubar';
+import { LuLogIn } from "react-icons/lu";
 import { FaHome } from "react-icons/fa";
-import { RiAdminFill } from "react-icons/ri";
-import { GoProjectSymlink } from "react-icons/go";
-import { CiLogout } from "react-icons/ci";
 
 
 
 
-export default function BasicDemo() {
+export default function headerUser() {
   const IFPRItem = () => (
-    <div className="flex justify-start p-4">
-      <img
-        src="https://certificados.paranavai.ifpr.edu.br/resources/img/paranavai-vertical.png"
-        alt="IFPR"
-        style={{ width: 'auto', height: '70px' }}
-      />
-      <h1 className="text-black text-4xl font-semibold flex-grow text-center">Sistema de Busca no Ambiente Acadêmico</h1>
-
+    <div className="flex w-full items-center justify-center p-4">
+      <div className="flex w-full items-center justify-start relative">
+        <div className="flex-shrink-0">
+          <img
+            src="https://certificados.paranavai.ifpr.edu.br/resources/img/paranavai-vertical.png"
+            alt="IFPR"
+            style={{ width: 'auto', height: '70px' }}
+          />
+        </div>
+        <h1 className="text-black text-4xl font-semibold absolute left-1/2 transform -translate-x-1/2">
+          Sistema de Busca no Ambiente Acadêmico
+        </h1>
+      </div>
     </div>
+  )
 
-  );
   const menu = [
 
     {
       label: 'Home',
       icon: <FaHome />,
-      className: "text-white"
-
-    },
-
-    {
-      label: 'Projetos',
-      icon: <GoProjectSymlink />,
       className: "text-white flex justify-center"
 
     },
 
     {
-      label: 'Logout',
-      icon: <CiLogout />,
-      className: "s"
+      label: 'Login ',
+      icon: <LuLogIn />,
+      className: "ml-auto text-white"
+
     },
-
-    {
-      icon: <RiAdminFill className="text-4xl"/>,
-      className: ""
-
-    }
 
   ];
 

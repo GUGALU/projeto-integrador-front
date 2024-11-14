@@ -8,10 +8,10 @@ import { CiLogout } from "react-icons/ci";
 
 
 
-export default function BasicDemo() {
+export default function headerAdmin() {
     const IFPRItem = () => (
-        <div className="flex w-full items-center justify-start p-4">
-            <div className="flex items-center justify-center w-full relative">
+        <div className="flex w-full items-center justify-center p-4">
+            <div className="flex w-full items-center justify-start relative">
                 <div className="flex-shrink-0">
                     <img
                         src="https://certificados.paranavai.ifpr.edu.br/resources/img/paranavai-vertical.png"
@@ -19,9 +19,8 @@ export default function BasicDemo() {
                         style={{ width: 'auto', height: '70px' }}
                     />
                 </div>
-
-                <h1 className="text-white text-4xl font-semibold absolute left-1/2 transform -translate-x-1/2">
-                    Instituto Federal do Paraná
+                <h1 className="text-black text-4xl font-semibold absolute left-1/2 transform -translate-x-1/2">
+                    Sistema de Busca no Ambiente Acadêmico
                 </h1>
             </div>
         </div>
@@ -29,31 +28,29 @@ export default function BasicDemo() {
     );
     const menu = [
 
+
         {
             label: 'Home',
-            icon: <FaHome />,
-            className: "text-white flex justify-center"
+            icon: <FaHome />
 
         },
 
         {
-            label: 'Projeto',
-            icon: <GoProjectSymlink />,
-            className: "text-white flex justify-center"
+            label: 'Projetos',
+            icon: <GoProjectSymlink />
 
         },
 
         {
             label: 'Logout',
-            icon: <CiLogout />,
-            className:  "s"
+            icon: <CiLogout />
         },
 
         {
-            icon: <RiAdminFill />,
-            className: ""
+            icon: <RiAdminFill className="text-4xl" />
 
         }
+
 
     ];
 
@@ -64,7 +61,7 @@ export default function BasicDemo() {
             <div className="card">
                 <div className=''>
 
-                    <Menubar model={menu} className='flex-1 bg-green-500' />
+                    <Menubar model={menu} className='flex-1 bg-green-600' />
                 </div>
 
             </div>
