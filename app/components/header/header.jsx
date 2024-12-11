@@ -1,20 +1,60 @@
 import React from 'react';
+import { Menubar } from 'primereact/menubar';
+import { LuLogIn } from "react-icons/lu";
+import { FaHome } from "react-icons/fa";
 
-const Header = () => {
-  return (
-    <header>
-      <div className="bg-[#071D41] py-4 text-center ">
-        <a
-          href="https://www.gov.br/pt-br"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white text-lg"
-        >
-          <strong>gov.br</strong>
-        </a>
+
+
+
+export default function headerUser() {
+  const IFPRItem = () => (
+    <div className="flex w-full items-center justify-center p-4">
+      <div className="flex w-full items-center justify-start relative">
+        <div className="flex-shrink-0">
+          <img
+            src="https://certificados.paranavai.ifpr.edu.br/resources/img/paranavai-vertical.png"
+            alt="IFPR"
+            style={{ width: 'auto', height: '70px' }}
+          />
+        </div>
+        <h1 className="text-black text-4xl font-semibold absolute left-1/2 transform -translate-x-1/2">
+          Sistema de Busca no Ambiente Acadêmico
+        </h1>
       </div>
-    </header>
-  );
-};
+    </div>
+  )
 
-export default Header;
+  const menu = [
+
+    {
+      label: 'Home',
+      icon: <FaHome />,
+      className: "text-white flex justify-center"
+
+    },
+
+    {
+      label: 'Login ',
+      icon: <LuLogIn />,
+      className: "ml-auto text-white"
+
+    },
+
+  ];
+
+  return (
+
+    <div>
+      <IFPRItem />
+      <div className="card">
+        <div className=''>
+
+          <Menubar model={menu} className='flex-1 bg-green-600' />
+        </div>
+
+      </div>
+
+    </div>
+
+  )
+}
