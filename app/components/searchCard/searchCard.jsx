@@ -1,113 +1,180 @@
 "use client";
 
-import React, {useState} from "react";
-import { Button } from 'primereact/button';
-import { Dialog } from 'primereact/dialog';
-import Crud from "../crud/CRUD";
+import React, { useState } from "react";
+import { Button } from "primereact/button";
+import { Tag } from "primereact/tag";
+import { LuPencil } from "react-icons/lu";
+import { FaRegTrashAlt } from "react-icons/fa";
+import { Chip } from "primereact/chip";
+import { Dialog } from "primereact/dialog";
 
 export default function SearchCard() {
-  const [isDialogVisible, setIsDialogVisible] = useState(false);
-  const openDialog = () => setIsDialogVisible(true);
-  const closeDialog = () => setIsDialogVisible(false);
+  const [user, setUser] = useState(false);
+  const [selectedProjeto, setSelectedProjeto] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const projetos = [
     {
-      id:1,
+      id: 1,
       titulo: "Projeto 1",
-      descricao: "Descrição do projeto 1.",
+      descricao: "Descrição do projeto 1. Lorem ipsum dolor sit amet.",
       colaboradores: ["João", "Mário", "José"],
-      linguagem: "C/C++",
-      repositorio: "https://github.com/projeto1"
+      tipoArtefato: ["Código fonte", "Documentação"],
     },
     {
-      id:2,
+      id: 2,
       titulo: "Projeto 2",
-      descricao: "Descrição do projeto 2.",
-      colaboradores: ["Ana", "Carlos", "Luísa"],
-      linguagem: "JavaScript",
-      repositorio: "https://github.com/projeto2"
+      descricao: "Lorem",
+      colaboradores: ["João", "Mário", "José"],
+      tipoArtefato: ["Código fonte", "Documentação"],
     },
     {
-      id:3,
+      id: 3,
       titulo: "Projeto 3",
-      descricao: "Descrição do projeto 3.",
-      colaboradores: ["Pedro", "Roberta", "Marcos"],
-      linguagem: "Python",
-      repositorio: "https://github.com/projeto3"
+      descricao: "Descrição do projeto 3. Lorem ipsum dolor sit amet.",
+      colaboradores: ["João", "Mário", "José"],
+      tipoArtefato: ["Código fonte", "Documentação"],
     },
     {
-      id:4,
+      id: 4,
       titulo: "Projeto 4",
-      descricao: "Descrição do projeto 4.",
-      colaboradores: ["Fernanda", "Raul", "Clara"],
-      linguagem: "Java",
-      repositorio: "https://github.com/projeto4"
+      descricao: "Descrição do projeto 4. Lorem ipsum dolor sit amet.",
+      colaboradores: ["João", "Mário", "José"],
+      tipoArtefato: ["Código fonte", "Documentação"],
     },
     {
-      id:5,
+      id: 5,
       titulo: "Projeto 5",
-      descricao: "Descrição do projeto 5.",
-      colaboradores: ["Bruno", "Sofia", "Léo"],
-      linguagem: "Ruby",
-      repositorio: "https://github.com/projeto5"
-    }
+      descricao: "Descrição do projeto 5. Lorem ipsum dolor sit amet.",
+      colaboradores: ["João", "Mário", "José"],
+      tipoArtefato: ["Código fonte", "Documentação"],
+    },
   ];
 
-  return (
-    <div className="w-full">
-      <div>
-        {projetos.map((projeto, index) => (
-          <div key={index} className="p-card shadow-lg rounded-lg p-6 w-10/12 mx-auto bg-gray-50 border border-gray-300 mb-4">
-            <div className="flex justify-between">
-              <div className="w-11/12">
-                <h2 className="text-2xl font-bold text-gray-800 mb-4">{projeto.titulo}</h2>
-              </div>
-              <div className="w-1/12 justify-end">
-                <Button onClick={openDialog} icon="pi pi-pencil" className="bg-green-800 text-white text-sm px-0.5 py-0.5 rounded-full"/>
-                <Dialog
-                  visible={isDialogVisible}
-                  style={{height:'100vh',with:'100vw'}}
-                  modal
-                  onHide={closeDialog}
-                >
-                  <Crud />
-                </Dialog>
-              </div>
-            </div>
-            
-            <p className="text-sm text-gray-600 mb-6">{projeto.descricao}</p>
+  const openModal = (projeto) => {
+    setSelectedProjeto(projeto);
+    setIsModalOpen(true);
+  };
 
-            <div className="flex justify-between">
-              <div className="w-9/12">
-                {projeto.colaboradores.map((colaborador, idx) => (
-                  <a key={idx} href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                    <button
-                      type="submit"
-                      className="bg-gray-500 text-white text-sm px-0.5 py-0.5 ml-3 rounded-full"
-                    >
-                      <p className="px-1">{colaborador}</p>
-                    </button>
-                  </a>
+  const closeModal = () => {
+    setSelectedProjeto(null);
+    setIsModalOpen(false);
+  };
+
+  return (
+    <div className="w-full p-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projetos.map((projeto) => (
+          <div
+            key={projeto.id}
+            onClick={() => openModal(projeto)}
+            className="cursor-pointer shadow-lg rounded-lg p-4 w-full bg-white border border-gray-300 hover:shadow-xl transition-shadow"
+          >
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-2xl font-bold text-gray-800">
+                {projeto.titulo}
+              </h2>
+              {user && (
+                <div className="gap-2 flex items-center">
+                  <Button
+                    className="bg-blue-600 text-white p-2 text-sm rounded-full hover:bg-blue-700"
+                    aria-label="Editar"
+                  >
+                    <LuPencil />
+                  </Button>
+                  <Button
+                    className="bg-red-600 text-white p-2 text-sm rounded-full hover:bg-red-700"
+                    aria-label="Excluir"
+                  >
+                    <FaRegTrashAlt />
+                  </Button>
+                </div>
+              )}
+            </div>
+
+            <p className="text-sm text-gray-600 mb-4">
+              {projeto.descricao.length > 50
+                ? `${projeto.descricao.slice(0, 50)}...`
+                : projeto.descricao}
+              {projeto.descricao.length > 50 && (
+                <button className="text-blue-500 hover:underline ml-2">
+                  Ver mais
+                </button>
+              )}
+            </p>
+
+            <div className="flex flex-col gap-4">
+              <div className="flex gap-2 flex-wrap">
+                {projeto.colaboradores.map((colaborador, index) => (
+                  <Chip
+                    label={colaborador}
+                    key={index}
+                    className="bg-blue-100 p-2 rounded-md text-blue-800"
+                  />
                 ))}
               </div>
 
-              <div className="flex w-2/12 justify-end">
-                <a href={projeto.repositorio} target="_blank" rel="noopener noreferrer">
-                  <button
-                    type="submit"
-                    className="bg-green-800 text-white text-sm px-0.5 py-0.5 rounded-full"
-                  >
-                    <p className="px-1">Repositório</p>
-                  </button>
-                </a>
-                <div className="bg-green-800 text-white text-sm px-0.5 py-0.5 ml-4 rounded-full flex items-center justify-center">
-                  <p className="px-1">{projeto.linguagem}</p>
-                </div>
+              <div className="flex gap-2 flex-wrap">
+                {projeto.tipoArtefato.map((tipo, index) => (
+                  <Tag
+                    value={tipo}
+                    text
+                    key={index}
+                    className="bg-green-100 p-2 rounded-md text-green-800 border-green-400"
+                  />
+                ))}
               </div>
             </div>
           </div>
         ))}
       </div>
+
+      <Dialog
+        visible={isModalOpen}
+        onHide={closeModal}
+        header={selectedProjeto?.titulo}
+        modal
+        style={{ width: "50vw" }}
+        className="p-dialog-overlay bg-white p-2 rounded-lg"
+      >
+        {selectedProjeto && (
+          <div className="bg-white p-4">
+            <p className="text-sm text-gray-600 mb-4">
+              {selectedProjeto.descricao}
+            </p>
+
+            <div className="flex flex-col gap-4">
+              <div className="flex gap-2 flex-wrap">
+                <strong>Colaboradores:</strong>
+                {selectedProjeto.colaboradores.map((colaborador, index) => (
+                  <Chip
+                    label={colaborador}
+                    key={index}
+                    className="bg-blue-100 p-2 rounded-md text-blue-800"
+                  />
+                ))}
+              </div>
+
+              <div className="flex gap-2 flex-wrap mt-4">
+                <strong>Artefatos:</strong>
+                {selectedProjeto.tipoArtefato.map((tipo, index) => (
+                  <Tag
+                    value={tipo}
+                    text
+                    key={index}
+                    className="bg-green-100 p-2 rounded-md text-green-800 border-green-400"
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+      </Dialog>
+      <style jsx global>{`
+        .p-dialog-mask {
+          background-color: rgba(0, 0, 0, 0.5);
+        }
+      `}</style>
     </div>
   );
 }
