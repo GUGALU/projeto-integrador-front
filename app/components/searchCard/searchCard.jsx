@@ -16,12 +16,14 @@ export default function SearchCard() {
   const projetos = [
     {
       id: 1,
+      id: 1,
       titulo: "Projeto 1",
       descricao: "Descrição do projeto 1. Lorem ipsum dolor sit amet.",
       colaboradores: ["João", "Mário", "José"],
       tipoArtefato: ["Código fonte", "Documentação"],
     },
     {
+      id: 2,
       id: 2,
       titulo: "Projeto 2",
       descricao: "Lorem",
@@ -30,6 +32,7 @@ export default function SearchCard() {
     },
     {
       id: 3,
+      id: 3,
       titulo: "Projeto 3",
       descricao: "Descrição do projeto 3. Lorem ipsum dolor sit amet.",
       colaboradores: ["João", "Mário", "José"],
@@ -37,12 +40,14 @@ export default function SearchCard() {
     },
     {
       id: 4,
+      id: 4,
       titulo: "Projeto 4",
       descricao: "Descrição do projeto 4. Lorem ipsum dolor sit amet.",
       colaboradores: ["João", "Mário", "José"],
       tipoArtefato: ["Código fonte", "Documentação"],
     },
     {
+      id: 5,
       id: 5,
       titulo: "Projeto 5",
       descricao: "Descrição do projeto 5. Lorem ipsum dolor sit amet.",

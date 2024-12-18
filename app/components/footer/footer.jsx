@@ -1,5 +1,4 @@
-import React from "react";
-import "primeicons/primeicons.css";
+import React from 'react';
 
 const Footer = () => {
   return (
@@ -7,28 +6,8 @@ const Footer = () => {
       <div className="bg-[#f2f2f2]">
         <div className="container mx-auto grid grid-cols-4 gap-4">
           <div className="p-4">
-            <h3 className="font-bold mb-2">Nossos Cursos</h3>
-            <a
-              href="https://ifpr.edu.br/paranavai/cursos-tecnicos-integrados/"
-              className="text-green-600 hover:underline transition-colors ease-in-out"
-            >
-              Cursos Tecnicos Integrados
-            </a>
-            <p />
-            <a
-              href="https://ifpr.edu.br/paranavai/cursos-tecnicos-subsequentes/"
-              className="text-green-600 hover:underline transition-colors ease-in-out"
-            >
-              Cursos Técnicos Subsequentes
-            </a>
-            <p />
-            <a
-              href="https://ifpr.edu.br/paranavai/cursos-de-pos-graduacao/"
-              className="text-green-600 hover:underline transition-colors ease-in-out"
-            >
-              Cursos de Pós-Graduação
-            </a>
-            <p />
+            <h3 className="font-bold mb-2">Coluna 1</h3>
+            <p>Conteúdo da coluna 1</p>
           </div>
           <div className="p-4">
             <h3 className="font-bold mb-2">Redes Sociais</h3>
@@ -61,38 +40,12 @@ const Footer = () => {
             </div>
           </div>
           <div className="p-4">
-            <h3 className="font-bold mb-2">Fale Conosco</h3>
-            <a
-              href="https://ifpr.edu.br/paranavai/fale-conosco/"
-              className="text-green-600 hover:underline transition-colors ease-in-out"
-            >
-              Fale Conosco
-            </a>
-            <p />
-            <a
-              href="https://ifpr.edu.br/institucional/orgaos-de-controle/ouvidoria/"
-              className="text-green-600 hover:underline transition-colors ease-in-out"
-            >
-              Ouvidoria
-            </a>
-            <p />
+            <h3 className="font-bold mb-2">Coluna 3</h3>
+            <p>Conteúdo da coluna 3</p>
           </div>
           <div className="p-4">
-            <h3 className="font-bold mb-2">Privacidade</h3>
-            <a
-              href="https://ifpr.edu.br/politica-de-privacidade/"
-              className="text-green-600 hover:underline transition-colors ease-in-out"
-            >
-              Política de Privacidade
-            </a>
-            <p />
-            <a
-              href="https://ifpr.edu.br/politica-de-cookies/"
-              className="text-green-600 hover:underline transition-colors ease-in-out"
-            >
-              Política de Cookies
-            </a>
-            <p />
+            <h3 className="font-bold mb-2">Coluna 4</h3>
+            <p>Conteúdo da coluna 4</p>
           </div>
         </div>
       </div>
