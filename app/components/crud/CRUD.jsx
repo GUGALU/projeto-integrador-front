@@ -80,7 +80,7 @@ export default function Crud({ artefatoParaEditar, fecharDialog }) {
   ];
 
   return (
-    <div className="p-4 w-full bg-gray-800 text-white rounded-lg">
+    <div className="p-4 w-full bg-white text-white rounded-lg">
       <h2 className="text-xl font-semibold mb-5 text-green-400">Editar Artefato</h2>
 
       {mensagemSucesso && <p className="text-green-500 mb-3">{mensagemSucesso}</p>}

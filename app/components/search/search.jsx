@@ -18,11 +18,11 @@ const Search = () => {
         </Button>
       )}
 
-      <form action="/search" method="GET" className="flex w-10/12 gap-2">
+      <form action="/search" method="GET" className="flex w-10/12 gap-2 border-black">
         <input
           type="search"
           name="query"
-          className="rounded-xl bg-white p-2 w-full"
+          className="rounded-xl bg-white p-2 w-full border border-black"
           placeholder="Digite sua pesquisa..."
         />
         <Button

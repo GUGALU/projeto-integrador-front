@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply font-primary bg-gray-300 text-black leading-loose;
+    @apply font-primary bg-gray-100 text-black leading-loose;
   }
 
   .h1 {
