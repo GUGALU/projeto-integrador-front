@@ -81,81 +81,111 @@ export default function Crud({ artefatoParaEditar, fecharDialog }) {
 
   return (
     <div className="p-4 w-full bg-white text-white rounded-lg">
-      <h2 className="text-xl font-semibold mb-5 text-green-400">Editar Artefato</h2>
+      <h2 className="text-xl font-semibold mb-5 text-green-400">
+        Editar Artefato
+      </h2>
 
-      {mensagemSucesso && <p className="text-green-500 mb-3">{mensagemSucesso}</p>}
+      {mensagemSucesso && (
+        <p className="text-green-500 mb-3">{mensagemSucesso}</p>
+      )}
 
       <div className="mb-4">
-        <label htmlFor="titulo" className="text-gray-300">Título</label>
+        <label htmlFor="titulo" className="text-black">
+          Título
+        </label>
         <InputText
           id="titulo"
           name="titulo"
           value={artefato.titulo}
           onChange={handleInputChange}
-          className="w-full bg-gray-700 text-white rounded-md"
+          className="w-full border border-black text-white rounded-md"
         />
       </div>
 
       <div className="mb-4">
-        <label htmlFor="autor" className="text-gray-300">Autor</label>
+        <label htmlFor="autor" className="text-black">
+          Autor
+        </label>
         <InputText
           id="autor"
           name="autor"
           value={artefato.autor}
           onChange={handleInputChange}
-          className="w-full bg-gray-700 text-white rounded-md"
+          className="w-full border border-black text-white rounded-md"
         />
       </div>
 
       <div className="mb-4">
-        <label htmlFor="integrantes" className="text-gray-300">Integrantes</label>
+        <label htmlFor="integrantes" className="text-black">
+          Integrantes
+        </label>
         <InputText
           id="integrantes"
           name="integrantes"
           value={artefato.integrantes}
           onChange={handleInputChange}
-          className="w-full bg-gray-700 text-white rounded-md"
+          className="w-full border border-black text-white rounded-md"
         />
       </div>
 
       <div className="mb-4">
-        <label htmlFor="link" className="text-gray-300">Link</label>
+        <label htmlFor="link" className="text-black">
+          Link
+        </label>
         <InputText
           id="link"
           name="link"
           value={artefato.link}
           onChange={handleInputChange}
-          className="w-full bg-gray-700 text-white rounded-md"
+          className="w-full border border-black text-white rounded-md"
         />
       </div>
 
       <div className="mb-4">
-        <label htmlFor="tipo" className="text-gray-300">Tipo de Artefato</label>
+        <label htmlFor="tipo" className="text-black">
+          Tipo de Artefato
+        </label>
         <Dropdown
           id="tipo"
           value={artefato.tipo}
           options={tiposArtefato}
           onChange={handleDropdownChange}
           placeholder="Selecione um Tipo"
-          className="w-full bg-gray-700 text-white rounded-md"
-          panelStyle={{ backgroundColor: '#1F2937', color: '#D1D5DB', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)' }}
+          className="w-full border border-black text-white rounded-md"
+          panelStyle={{
+            backgroundColor: "#1F2937",
+            color: "#D1D5DB",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.5)",
+          }}
         />
       </div>
 
       <div className="mb-4">
-        <label htmlFor="palavrasChave" className="text-gray-300">Palavras-chave</label>
+        <label htmlFor="palavrasChave" className="text-black">
+          Palavras-chave
+        </label>
         <InputText
           id="palavrasChave"
           name="palavrasChave"
           value={artefato.palavrasChave}
           onChange={handleInputChange}
-          className="w-full bg-gray-700 text-white rounded-md"
+          className="w-full border border-black text-white rounded-md"
         />
       </div>
 
       <div className="flex space-x-4">
-        <Button label="Salvar" icon="pi pi-check" className="p-button-success" onClick={handleSaveArtefato} />
-        <Button label="Cancelar" icon="pi pi-times" className="p-button-secondary" onClick={handleCancelar} />
+        <Button
+          label="Salvar"
+          icon="pi pi-check"
+          className="p-button-success bg-green-600 p-2 rounded-md"
+          onClick={handleSaveArtefato}
+        />
+        <Button
+          label="Cancelar"
+          icon="pi pi-times"
+          className="p-button-secondary p-2 rounded-md bg-red-600"
+          onClick={handleCancelar}
+        />
       </div>
     </div>
   );
